@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
+    @article = Article.new
   end
 
   # GET /articles/1
