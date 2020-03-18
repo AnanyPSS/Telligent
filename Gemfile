@@ -36,13 +36,16 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# gem 'bulma-rails', '~> 0.8.0'
 ####################################
 gem 'bulma-rails', '~> 0.8.0'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'impressionist', '~> 1.6', '>= 1.6.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'acts_as_votable', '~> 0.12.1'
 #######################################
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
