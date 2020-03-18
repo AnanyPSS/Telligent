@@ -8,8 +8,8 @@
 		</figure>
 		<div class="media-content">
 			<%=render 'articles/form' %>
-		</div
-	</article>
+		</div>
+    </article>
 	<% end %>
 
 <% @articles.each do | article |%>
@@ -27,7 +27,7 @@
 					<p><%= article.article %></p>
 				</div>
 
-			<% if user_signed_in? %>
+			<% if user_signed_in? && current_user.id ==article.user_id %>
 				<nav class="level">
 					<div class="level-left is-mobile">
 					<%= link_to article , class: "level-item" do %>
@@ -47,3 +47,4 @@
 	</article>
 </div>
 <% end %>
+</div>
