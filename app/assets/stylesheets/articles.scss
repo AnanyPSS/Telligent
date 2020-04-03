@@ -1,17 +1,17 @@
-// Place all the styles related to the Shots controller here.
+// Place all the styles related to the Article controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .hero.is-dark {
 	background-color: #282828 !important;
 }
 
-.shot-wrapper {
+.article-wrapper {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
 	border-radius: 2px;
 	padding: 10px;
 	background: white;
 }
-.shots {
+.articles {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 1rem;
@@ -32,12 +32,12 @@
 	}
 
 }
-.shot {
+.article {
 	position: relative;
 	display: block;
 	color: #333 !important;
 
-	.shot-data {
+	.article-data {
 		display: none;
 		position: absolute;
 		top: 0;
@@ -47,13 +47,13 @@
 		padding: 10px;
 		background: rgba(white, .9);
 		cursor: pointer;
-		.shot-title {
+		.article-title {
 			font-weight: bold;
 		}
-		.shot-description {
+		.article-description {
 			font-size: .9rem;
 		}
-		.shot-time {
+		.article-time {
 			font-size: .8rem;
 			padding-top: .5rem;
 		}
@@ -79,13 +79,13 @@
 }
 
 .by,
-.shot-time {
+.article-time {
 	display: inline-block;
 	position: relative;
 	top: -4px;
 }
 
-.shot-analytics {
+.article-analytics {
 	text-align: right;
 	@media only screen and (max-width: 800px) {
 		text-align: right;
@@ -103,8 +103,8 @@
 	}
 }
 
-.shot-analytics,
-.panel.show-shot-analytics {
+.article-analytics,
+.panel.show-article-analytics {
 	font-size: .9rem;
 	a,
 	.icon {
@@ -116,7 +116,7 @@
 	}
 }
 
-.panel.show-shot-analytics {
+.panel.show-article-analytics {
 	a { color: #333; }
 	.icon {
 		padding-right: .5rem;
@@ -127,7 +127,7 @@
 }
 
 
-.shot-container {
+.article-container {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
 	border-radius: 2px;
 	padding: 40px;

@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
 
-var Shots = {
+	var Articles = {
 		previewShot() {
 			if (window.File && window.FileList && window.FileReader) {
 
@@ -38,14 +38,12 @@ var Shots = {
 				function handleDragOver(evt) {
 					evt.stopPropagation();
 					evt.preventDefault();
-					evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+					evt.dataTransfer.dropEffect = 'copy'; 
 				}
 
-				// Setup the dnd listeners.
-				// https://stackoverflow.com/questions/47515232/how-to-set-file-input-value-when-dropping-file-on-page
 				const dropZone = document.getElementById('drop_zone');
 				const target = document.documentElement;
-				const fileInput = document.getElementById('shot_user_shot');
+				const fileInput = document.getElementById('article_user_shot');
 				const previewImage = document.getElementById('previewImage');
 				const newShotForm = document.getElementById('new_shot');
 
@@ -92,14 +90,17 @@ var Shots = {
 			}
 		},
 		shotHover() {
-			$('.shot').hover(function() {
-				$(this).children('.shot-data').toggleClass('visible');
+			$('.article').hover(function() {
+				$(this).children('.article-data').toggleClass('visible');
 			});
 		}
 
 	};
-	Shots.previewShot();
-	Shots.shotHover();
+	Articles.previewShot();
+	Articles.shotHover();
 
 
 });
+
+
+

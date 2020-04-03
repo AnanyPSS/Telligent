@@ -14,7 +14,7 @@
  *= require_self
  */
 
-/* I can change colors of the given links and link-hover from here to make the page more interactive 
+/* I can change colors of the given links and link-hover from here to make the page more interactive */
 $pink: #ea4c89;
 $pink-invert: #fff;
 
@@ -22,7 +22,6 @@ $primary: $pink;
 $primary-invert: $pink-invert;
 $link: $primary;
 $link-hover: darken($primary, 20%);
-*/
 
  @import "bulma";
 

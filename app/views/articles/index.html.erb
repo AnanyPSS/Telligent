@@ -1,18 +1,22 @@
 <section class="section">
-  <div class="container">
-    <div class="column">
-    	<% if user_signed_in?%>
-    		<%= render 'profile'%>
-    	<% else %>
-      		<%= render 'trends'%>
+  <div class="article">
+    <% @articles.each do |article| %>
+    <div class="article-grid-item">
+      <div class="article-wrapper">
 
-     	<% end %>
-     		<%= render 'feed' %>
-      		<%= render 'follow-the-writer' %>
+        <%= link_to article, class: "article" do %>
+        <%= image_tag(article.user_shot_url) %>
+        <div class="article-data">
+          <h3 class="article-title"><%= article.title %></h3>
+          <div class="article-description"><%= truncate(article.article, length: 30) %></div>
+          <div class="article-time">
+              <%= time_ago_in_words(article.created_at) %>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
     </div>
+    <% end %>
   </div>
 </section>
-
-
-
-
