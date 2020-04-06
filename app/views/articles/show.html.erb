@@ -47,14 +47,32 @@
 			<div class="column is-3 is-offset-1">
 				<div class="nav panel show-shot-analytics">
 					<div class="panel-block views data">
-						<span class="icon"><i class="fa fa-eye"></i></span> 0 Views
-									</div>
+						<span class="icon"><i class="fa fa-eye"></i></span> 
+						<%= pluralize(@article.impressionist_count, 'View') %>
+						</div>
 					<div class="panel-block comments data">
 						<span class="icon"><i class="fa fa-comment"></i></span> 
 						<%= pluralize(@article.comments.count, 'Comment') %>
-					</div>
+					   </div>
 					<div class="panel-block likes data">
-				 		<span class="icon"><i class="fa fa-heart"></i></span> 0 Likes
+				 		<% if user_signed_in? %>
+             	   <% if current_user.liked? @article %>
+               		<%= link_to unlike_article_path(@article), method: :put, class: "unlike_article" do %>
+                  		<span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
+                  		<span class="vote_count"><%= pluralize(@article.get_likes.size, 'Like') %></span>
+                	<% end %>
+              		<% else %>
+                		<%= link_to like_article_path(@article), method: :put, class: "like_article" do %>
+                  		<span class="icon"><i class="fa fa-heart"></i></span>
+                  		<span class="vote_count"><%= pluralize(@article.get_likes.size, 'Like') %></span>
+                	<% end %>
+              		<% end %>
+            		<% else %>
+                		<%= link_to like_article_path(@article), method: :put, class: "like_article" do %>
+                  		<span class="icon"><i class="fa fa-heart"></i></span>
+                  		<span class="vote_count"><%= pluralize(@article.get_likes.size, 'Like') %></span>
+                		<% end %>
+            		<% end %>
 					</div>
 				</div>
 			</div>

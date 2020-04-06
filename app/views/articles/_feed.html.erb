@@ -25,7 +25,7 @@
 					<strong><%= article.user.name %></strong><br/>
 					<small><%= article.user.username %></small><br/>
 					<p>
-						<h4>Title - <%= article.title %></h4>
+						<h4 class="has-text-info is-italic"><%= article.title %></h4>
 						<%= truncate(article.article, length:60) %>
 					</p>
 				</div>
@@ -44,7 +44,7 @@
             <div class="level-item views data">
               <%= link_to article do %>
                 <span class="icon"><i class="fa fa-eye"></i></span>
-                0
+                <%= article.impressionist_count %>
               <% end %>
             </div>
             <div class="level-item comments data">
@@ -52,10 +52,29 @@
                 <span class="icon"><i class="fa fa-comment"></i></span>
                  <%= article.comments.count %>
               <% end %>
-              <%= link_to article do %>
-				<span class="icon"><i class="fa fa-heart"></i></span>
-				 0
-				<% end %>
+            </div>
+
+            <div class="level-item likes">
+              <% if user_signed_in? %>
+                
+                <% if current_user.liked? article %>
+                  <%= link_to unlike_article_path(article), method: :put, class: "unlike_article" do %>
+                    <span class="icon"><i class="fa fa-heart has-text-primary"></i></span>
+                    <span class="vote_count"><%= article.get_likes.size %></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to like_article_path(article), method: :put, class: "like_article" do %>
+                    <span class="icon"><i class="fa fa-heart"></i></span>
+                    <span class="vote_count"><%= article.get_likes.size %></span>
+                  <% end %>
+                <% end %>
+              <% else %>
+                  <%= link_to like_article_path(article), method: :put, class: "like_article" do %>
+                    <span class="icon"><i class="fa fa-heart"></i></span>
+                    <span class="vote_count"><%= article.get_likes.size %></span>
+                  <% end %>
+              <% end %>
+
             </div>
 
 			<% if user_signed_in? && current_user.id ==article.user_id %>

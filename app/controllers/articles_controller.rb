@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit,:update,:destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit,:update,:destroy, :like, :unlike]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
 
   # GET /articles
   # GET /articles.json
@@ -62,6 +63,23 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like
+    @article.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
+  def unlike
+    @article.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
