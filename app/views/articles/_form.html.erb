@@ -1,5 +1,12 @@
-<%= simple_form_for(@article) do |f| %>
+<%= simple_form_for @article,  html: { multipart: true }  do |f|  %>
 <%= f.error_notification %>
+
+<div class="field">
+      <div class="control">
+      	<%= f.input :title, label: "Title", input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+    </div>
+</div>
+
 <div class="field">
   <div class="control">
     <%= f.input :article, label: "Write your article here", input_html: {class: "textarea" }, wrapper: false, label_html: 
@@ -8,3 +15,4 @@
 </div>
 <%= f.button :submit, class: "button is-info" %>
 <% end %>
+

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-/* I can change colors of the given links and link-hover from here to make the page more interactive 
+/* I can change colors of the given links and link-hover from here to make the page more interactive */
 $pink: #ea4c89;
 $pink-invert: #fff;
 
@@ -22,7 +22,7 @@ $primary: $pink;
 $primary-invert: $pink-invert;
 $link: $primary;
 $link-hover: darken($primary, 20%);
-*/
+
 
  @import "bulma";
 
@@ -63,6 +63,53 @@ html, body {
 	  background-color: rgba($green, .3);
 	  pointer-events: none;
 	  z-index: 99;
+	}
+}
+
+.article-time {
+	display: inline-block;
+	position: relative;
+	top: -4px;
+}
+
+.article-analytics {
+	text-align: right;
+	@media only screen and (max-width: 800px) {
+		text-align: right;
+		.level-item {
+			display: inline-block;
+			padding: 0 4px;
+		}
+		.level-left+.level-right {
+			margin: 0;
+			padding: 0;
+		}
+		.level-item:not(:last-child) {
+			margin: 0;
+		}
+	}
+}
+
+.article-analytics,
+.panel.show-article-analytics {
+	font-size: .9rem;
+	a,
+	.icon {
+		color: #aaa;
+	}
+	.icon:hover,
+	a:hover {
+		color: darken(#aaa, 25%);
+	}
+}
+
+.panel.show-article-analytics {
+	a { color: #333; }
+	.icon {
+		padding-right: .5rem;
+	}
+	.likes .vote_count {
+		margin-left: -4px;
 	}
 }
 

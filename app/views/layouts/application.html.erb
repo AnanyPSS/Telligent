@@ -34,7 +34,7 @@
     </div>
 
      <div id="navbar" class="navbar-menu">
-
+       <div class="level-left">
         <div class="navbar-start">
           <div class="navbar-item">
             <div class="field is-grouped">
@@ -67,6 +67,7 @@
             </div>
           </div>
         </div>
+      </div>
 
    
          <div class="navbar-end">
@@ -74,7 +75,7 @@
             <div class="field is-grouped">
               <% if user_signed_in? %>
               <p class="control">
-                <%= link_to root_path, class: "button is-info" do %>
+                <%= link_to new_article_path, class: "button is-info" do %>
                   <span class="icon is-small"><i class="fa fa-upload"></i></span>
                   <span>New Article</span>
                   <% end %>
@@ -102,7 +103,15 @@
 
   </nav>
 
-
     <%= yield %>
   </body>
+   <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Telligent</strong> by <a href="https://www.linkedin.com/in/ananypratap/">Ananya Pratap</a>. The source code has repository 
+      <a href=https://github.com/AnanyPSS/Telligent>GitHub</a>. The website has a copyright 
+      <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">ZZZZZZ.</a>.
+    </p>
+  </div>
+</footer>
 </html>
