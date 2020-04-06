@@ -1,8 +1,12 @@
+<%= render 'hero' %>
+
 <section class="section">
-  <div class="article">
-    <% @articles.each do |article| %>
-    <div class="article-grid-item">
-      <div class="article-wrapper">
+  <div class="container">
+    <div class="columns">
+    	<% if user_signed_in?%>
+    		<%= render 'profile'%>
+    	<% else %>
+      		<%= render 'trends'%>
 
         <%= link_to article, class: "article" do %>
         <%= image_tag(article.user_shot_url) %>

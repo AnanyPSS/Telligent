@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:edit, :update, :destroy]
+
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, only: [:edit,:update,:destroy, :like, :unlike]
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
+
 
   # GET /articles
   # GET /articles.json
@@ -63,6 +66,23 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def like
+    @article.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
+  def unlike
+    @article.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -71,6 +91,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :article, :name, :user_shot)
+      params.require(:article).permit(:article, :name, :title)
     end
 end
