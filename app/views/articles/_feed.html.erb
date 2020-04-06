@@ -50,7 +50,7 @@
             <div class="level-item comments data">
               <%= link_to article do %>
                 <span class="icon"><i class="fa fa-comment"></i></span>
-                 0
+                 <%= article.comments.count %>
               <% end %>
               <%= link_to article do %>
 				<span class="icon"><i class="fa fa-heart"></i></span>
